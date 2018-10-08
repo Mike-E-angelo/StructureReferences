@@ -47,7 +47,8 @@ namespace StructureReferences
 		static ref readonly Structure Add(in Structure parameter)
 		{
 			var structure = new Structure(parameter.Count + 1);
-			return ref MemoryMarshal.GetReference(MemoryMarshal.CreateReadOnlySpan(ref structure, 0));
+			var span      = MemoryMarshal.CreateReadOnlySpan(ref structure, 0);
+			return ref MemoryMarshal.GetReference(span);
 		}
 
 		ref readonly Structure AddFromLocal(in Structure parameter)
