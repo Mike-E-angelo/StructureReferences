@@ -41,7 +41,7 @@ namespace StructureReferences
 		[Fact]
 		public void InlineLocal()
 		{
-			AddFromLocal(AddFromLocal(AddFromLocal(_structure))).Count.Should().Be(3);
+			AddFromLocal(in AddFromLocal(in AddFromLocal(in _structure))).Count.Should().Be(3);
 		}
 
 		static ref readonly Structure Add(in Structure parameter)
